@@ -10,7 +10,7 @@ namespace dotNet.Controllers
     [ApiController]
     [Route("api/controller")]
     public class ContactController : Controller
-    {
+    {   
         //THis will talk to in memory DB    
         private readonly ContactAPIDbContext dbContext;
 
