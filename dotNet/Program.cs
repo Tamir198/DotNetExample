@@ -1,4 +1,5 @@
 using dotNet.Data;
+using dotNet.ErrorHandling;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 
@@ -7,18 +8,14 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 builder.Services.AddControllers();
+//This 
+builder.Services.AddSingleton<ErrorHandler>();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 
-
 //Injecting DB into the solution
-
-//builder.Services.AddDbContext<ContactAPIDbContext>(option =>
-//option.UseSqlServer(builder.Configuration.GetConnectionString("ContactApiConnectionString"))
-//);
-
 builder.Services.AddDbContext<ContactAPIDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("ContactAPIDbContext")));
 

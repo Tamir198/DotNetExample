@@ -48,7 +48,7 @@ namespace dotNet.Controllers
 
             if (contact != null)
             {   
-                dbContext.Remove(contact);
+                dbContext.Contacts.Remove(contact);
                 dbContext.SaveChanges();
                 return Ok("Item Removed");
 
